@@ -1,0 +1,41 @@
+/*
+ * css file for nav
+ */
+ nav {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  top : 0;
+  height: 120px;
+  width:100%; 
+  background-color: #4056A1;
+  color: #FFFF;
+  position: fixed; 
+ }
+ .tweeter span {
+  font-family:"Bungee";
+  border-color: #ffffff;
+  border: 1px;  
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+ }
+.tweeter {
+  display: flex;
+}
+.write-tweet {
+  display: flex;
+  min-height: auto;
+  justify-content: center;
+  flex-direction: column;
+  font-size: medium;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+.write-tweet i {
+  display: flex;
+  justify-content: center;
+}
+
+.fa-angles-down {
+  color: #e7390d;
+}
