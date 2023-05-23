@@ -53,3 +53,9 @@ article.tweet footer{
   margin-bottom: 1em;
   font-size: small;
 }
+.tweet i{
+  color: #4056A1;
+}
+.tweet i:hover{
+  color: goldenrod;
+}
