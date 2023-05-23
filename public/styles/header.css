@@ -1,0 +1,25 @@
+/*
+ * css file for header
+ */
+ .avatar {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  margin-top: 120px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #bfac00;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */;
+ }
+
+ .avatar h2{
+  color: white;
+ }
+
+ .avatar .name{
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+ }
