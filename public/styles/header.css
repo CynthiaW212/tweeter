@@ -1,7 +1,7 @@
 /*
- * css file for header
+ * scss file for header
  */
- .avatar {
+.avatar {
   height: 400px;
   width: 100%;
   display: flex;
@@ -9,20 +9,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #bfac00;
+  background-color: #f6ba37;
   background-image: url("https://www.transparenttextures.com/patterns/arches.png");
-  /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */;
- }
-
- .avatar h2{
-  color: white;
- }
-
- .avatar .name{
+}
+.avatar .name {
   display: flex;
   justify-content: center;
   flex-flow: row wrap;
- }
- .name{
-  font-size: 2em;
- }
+  font-size: 1.5em;
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .avatar {
+    width: 40%;
+    float: left;
+    margin-top: 200px;
+    margin-left: 3em;
+    margin-right: 3em;
+  }
+}
