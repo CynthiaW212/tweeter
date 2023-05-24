@@ -6,6 +6,7 @@
 html {
   box-sizing: border-box;
 }
+
 *, *:before, *:after {
   box-sizing: inherit;
 }
@@ -13,13 +14,13 @@ html {
 /*
  * Global layout stuff
  */
-
 body {
   color: #545149;
   background-color: #f4f1ec;
   font-size: 24px;
   font-family: "Source Sans Pro", sans-serif;
 }
+
 /* Apply Bungee font to the Tweeter logo in the nav */
 .navbar .logo {
   font-family: "Bungee", cursive;
@@ -28,8 +29,19 @@ body {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
-
- main {
+main {
   width: 90%;
   margin: 0 auto;
- }
+}
+
+/* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+  }
+  main {
+    margin-top: 200px;
+    width: 60%;
+  }
+}
