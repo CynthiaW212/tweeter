@@ -5,48 +5,47 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
-// Test / driver code (temporary). Eventually will get this from the server.
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
+$(function() {
 
-//Function: calculate the date difference from now
-const dateFromToday = function(dateTimestamp) {
-  
-  const givenDate = new Date(dateTimestamp);
-  const currentDate = new Date();
-  // Calculate the time difference in milliseconds then convert it to days
-  const daysDifference = Math.floor((currentDate.getTime() - givenDate.getTime()) / (1000 * 60 * 60 * 24));
-  
-  return daysDifference;
-};
+  $("#tweet-form").on("submit", function(event) {
+    event.preventDefault();
+    console.log("form  was submit. ");
+    const tweetText = $("#tweet-text").val();
+    const data = $(this).serialize();
+    //error handler
+    if (!tweetText) {
+      return showError("empty message");
+    }
+    if (tweetText.length > 140) {
+      return showError("Too long. the limit is 140 !");
+    }
+    $.post("/tweets", data)
+      .then(() => {
+        loadTweets(); //render tweets
+        $("#tweet-text").val(""); //clean text
+        $("#tweet-text").attr("placeholder", "What are you humming about?");//reset placeholder
+        $(".counter").val("140");//reset counter
+        $("#errContainer").css("display", "none");
+      })
+      .catch(function() {
+        console.log("error occured");
+      });
+  });
+  //animation to show new tweet
+  $("#write-tweet").click(function() {
+    $("#new-tweet").slideToggle("slow");
+    $("#tweet-text").focus();
+  });
 
-const createTweetElement = function(tweet) {
-  const $tweet = $(`
-  <section class="new-tweet">
-          <form>
+  //Function: show error when it ocurred
+  const showError = function(message) {
+    $("#errMsg").text(message);
+    $("#errContainer").slideDown();
+    $("#errContainer").css("display", "flex");
+  };
+  //Function: add new tweet
+  const createTweetElement = function(tweet) {
+    const $tweet = $(`
               <article class="tweet" >
                 <header>
                   <div>
@@ -55,9 +54,9 @@ const createTweetElement = function(tweet) {
                   </div>
                   <h4 class="atUser">${tweet.user.handle}</h4>
                 </header>
-                <p>${tweet.content.text}</p>
+                <p class="tweetContent"></p>
                 <footer>
-                  <span>${dateFromToday(tweet.created_at)} days ago</span>
+                  <span>${timeago.format(tweet.created_at)}</span>
                   <span>
                     <i class="fa-sharp fa-solid fa-flag"></i>
                     <i class="fa-solid fa-retweet"></i>
@@ -65,22 +64,25 @@ const createTweetElement = function(tweet) {
                   </span>
                 </footer>
               </article>
-           </div>
-        </form>
-      </section>`);
+           `);
+    // Sanitize the tweetText before posting
+    $tweet.find('p.tweetContent').text(tweet.content.text);
+    return $tweet;
+  };
+  //Function: render tweets
+  const renderTweets = function(data) {
+    data.forEach(e => {
+      const $tweet = createTweetElement(e);
+      $('.tweets-container').prepend($tweet);
+    });
+  };
+  //Function: load all tweets
+  const loadTweets = function() {
+    $.get("/tweets", (data) => {
+      renderTweets(data);
+    });
+  };
 
-  return $tweet;
-};
-
-const renderTweets = function(data) {
-  // loops through tweets
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
-  data.forEach(e => {
-    const $tweet = createTweetElement(e);
-    $('.container').append($tweet); // to add it to the page so we can make sure it's got all the right elements, classes, etc.
-  });
-};
-
-// renderTweets(data);
+  loadTweets();
+});
 
