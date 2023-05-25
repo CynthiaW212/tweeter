@@ -11,6 +11,7 @@
   flex-direction: column;
   background-color: #f6ba37;
   background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  min-width: 400px;
 }
 .avatar .name {
   display: flex;
