@@ -1,0 +1,67 @@
+//variables defination
+$bk-color:#f4f1ec;
+$btn-bk-color:#4056A1;
+$bt-font-color:white;
+$border-color:black;
+$error-color:red;
+
+.new-tweet {
+  padding: 1em;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  flex-direction: column;
+  transition: all 0.3s ease-in-out;
+}
+#new-tweet {
+  display:none;
+}
+#tweet-text {
+  display: flex;
+  width: 100%;
+  border: none;
+  border-bottom: 3px solid $border-color;
+  background-color: $bk-color;
+  font-size: 1em;
+  font-weight: bold;
+}
+#tweet-text:focus{
+  outline: none;  
+}
+#tweet-text::placeholder {
+  font-weight: bold;
+}
+.tweet-submit {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+  font-family: "Bungee", cursive;
+  button {
+    background-color: $btn-bk-color;
+    color: $bt-font-color;
+  }
+  output {
+    display: flex;
+    font-size: medium;
+    font-weight: bold;
+  }
+}
+.exceeded {
+  color:$error-color;
+}
+#errContainer {  
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid $error-color;
+  height: 40px;
+  color: $error-color;
+}
+#errMsg{
+  display: flex;
+  justify-content: center;
+  font-size:0.9em;
+  color: $error-color;
+  font-weight: bold;
+  padding:0 1em 0 1em;
+}

@@ -1,0 +1,56 @@
+/*
+ * scss file for nav
+ */
+ $bk-color:#4056A1;
+ $font-color:white;
+ $second-font-color:red;
+ nav {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+  top : 0;
+  height: 120px;
+  width:100%; 
+  background-color: $bk-color;
+  color: $font-color;
+  position: fixed; 
+ }
+ .tweeter span {
+  font-family:"Bungee",cursive;  
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+ }
+.tweeter {
+  display: flex;
+}
+.write-tweet {
+  display: flex;
+  min-height: auto;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: medium;
+  margin-left: 1.5em;
+  margin-right: 1.5em;
+}
+#fa-angles-down {
+  color: $second-font-color;
+  
+}
+
+#fa-angles-down:hover {
+  animation: hoverAnimation 1s infinite;
+  cursor: pointer;
+}
+
+@keyframes hoverAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

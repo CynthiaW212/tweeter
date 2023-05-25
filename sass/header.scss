@@ -1,0 +1,35 @@
+/*
+ * scss file for header
+ */
+ $bk-color:#f6ba37;
+
+ .avatar {
+  height: 400px;
+  width: 100%;
+  display: flex;
+  margin-top: 120px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color:$bk-color;
+  background-image: url("https://www.transparenttextures.com/patterns/arches.png");
+  min-width: 400px;
+ 
+  .name{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    font-size: 1.5em;
+   }
+ }
+
+  /* Desktop styles */
+@media only screen and (min-width: 1024px) {
+  .avatar{
+    width: 40%;
+    float: left;
+    margin-top: 200px;
+    margin-left: 3em;
+    margin-right: 3em;  
+  }
+}

@@ -1,0 +1,64 @@
+//variables defination
+$border-color:black;
+$shadow-color: rgba(168, 168, 243, 0.2);
+$user-font-color:grey;
+$atuser-font-color:rgba(106, 143, 154, 0.4);
+$icon-color:#4056A1;
+$icon-hover-color:goldenrod;
+
+.tweets-container{
+  margin-top: 0px;
+}
+article.tweet{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 1px solid $border-color;
+  margin:1em;
+}
+article.tweet:hover{
+  box-shadow: 8px 8px 2px 1px $shadow-color;
+}
+article.tweet header{
+  margin:1em;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+article.tweet img{
+  display: flex;  
+  width: 50px;
+  height: 50px;
+  margin: 0.5em;
+}
+article.tweet header > div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+article.tweet p{
+  display: flex;
+  justify-content: flex-start;
+  margin: 0.5em 1em 0.5em 1em;
+  border: none;
+  border-bottom: 3px solid $border-color;
+  font-weight: bold;
+}
+article.tweet .atUser{
+  color:$atuser-font-color;
+}
+article.tweet .user{
+  color:$user-font-color;
+}
+article.tweet footer{
+  display: flex;
+  justify-content: space-between;
+  margin: 0em 3em 1em 3em;
+  font-size: small;
+}
+.tweet i{
+  color:$icon-color;
+}
+.tweet i:hover{
+  color:$icon-hover-color;
+}

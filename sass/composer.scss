@@ -1,0 +1,25 @@
+$bk-color:red;
+$font-color:white;
+.top-button {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color:$bk-color;
+  color:$font-color;
+  border: none;
+  outline: none;
+  font-size: 24px;
+  font-weight: bolder;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.top-button:hover {
+  opacity: 0.7;
+}
+
